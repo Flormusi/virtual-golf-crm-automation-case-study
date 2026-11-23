@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph Capture
+        A[Meta Lead Ads<br/>form] --> B[Google Sheets<br/>lead log]
+        B --> C[Make scenario]
+        D[Instagram comment<br/>or DM] --> E[ManyChat]
+        E --> F[WhatsApp link]
+    end
+
+    C -->|create contact,<br/>no message sent| G[(Chatwoot<br/>shared inbox)]
+    F --> G
+    H[Instagram / Facebook<br/>/ WhatsApp inboxes] --> G
+
+    subgraph Reactivation
+        I[Old lead list] --> J[Clean and dedupe<br/>valid phones only]
+        J --> K[Batches of up to 25<br/>tagged by label]
+        K --> L[WhatsApp template<br/>campaign]
+    end
+
+    L --> G
+    G --> M[Automatic reply<br/>price and info]
+    M --> N["Lead asks for a person<br/>(label: atencion_humana)"]
+    N --> O[Owner replies]
